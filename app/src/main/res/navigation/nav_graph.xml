@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/feed">
+    <fragment
+        android:id="@+id/feed"
+        android:name="com.mtanmay.loopiieinternship.ui.feed.Feed"
+        android:label="Feed"
+        tools:layout="@layout/fragment_feed">
+        <action
+            android:id="@+id/action_feed_to_search"
+            app:destination="@id/search" />
+        <action
+            android:id="@+id/action_feed_to_imageScreen"
+            app:destination="@id/imageScreen" />
+    </fragment>
+    <fragment
+        android:id="@+id/search"
+        android:name="com.mtanmay.loopiieinternship.ui.search.Search"
+        android:label="Search"
+        tools:layout="@layout/fragment_search">
+        <action
+            android:id="@+id/action_search_to_feed"
+            app:destination="@id/feed" />
+        <action
+            android:id="@+id/action_search_to_imageScreen"
+            app:destination="@id/imageScreen" />
+        <argument
+            android:name="image"
+            app:argType="com.mtanmay.loopiieinternship.api.Photo" />
+    </fragment>
+    <fragment
+        android:id="@+id/imageScreen"
+        android:name="com.mtanmay.loopiieinternship.ui.imagescreen.ImageScreen"
+        android:label="fragment_image_screen"
+        tools:layout="@layout/fragment_image_screen" >
+        <argument
+            android:name="image"
+            app:argType="com.mtanmay.loopiieinternship.api.Photo" />
+    </fragment>
+</navigation>
